@@ -13,7 +13,7 @@ Add a `.env` with an [OpenRouter](https://openrouter.ai) key for LLM-powered com
 
 ```
 OPENROUTER_API_KEY=your-key-here
-
+```
 ## Features
 
 - **Keyword search** — BM25 over titles/descriptions (`keyword_search_cli.py`)
