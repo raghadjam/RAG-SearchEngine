@@ -1,7 +1,4 @@
 
-## `README.md`
-
-```markdown
 # RAG Search Engine
 
 A CLI movie search engine that layers keyword search, semantic search, hybrid retrieval, LLM query enhancement/re-ranking, RAG, and image-based search on top of a movie dataset.
@@ -16,7 +13,6 @@ Add a `.env` with an [OpenRouter](https://openrouter.ai) key for LLM-powered com
 
 ```
 OPENROUTER_API_KEY=your-key-here
-```
 
 ## Features
 
