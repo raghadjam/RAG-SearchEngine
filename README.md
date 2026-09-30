@@ -40,12 +40,6 @@ uv run cli/multimodal_search_cli.py image_search data/paddington.jpeg
 
 ## Notes
 
-- `cache/` holds generated embeddings/index files and is gitignored — delete it to force a rebuild after logic changes.
 - LLM commands hit OpenRouter's free tier, which can be inconsistent; retry on failure.
 ```
 
-```bash
-git add README.md
-git commit -m "Add project README"
-git push
-```
