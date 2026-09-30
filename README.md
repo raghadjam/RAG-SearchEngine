@@ -27,6 +27,34 @@ OPENROUTER_API_KEY=your-key-here
 - **Offline eval** — precision@k / recall@k / F1 against a golden dataset (`evaluation_cli.py`)
 - **Multimodal search** — CLIP image embeddings for image-to-movie search, plus image-aware query rewriting (`multimodal_search_cli.py`, `describe_image_cli.py`)
 
+
+## Project structure
+
+```
+cli/
+  lib/
+    keyword_search.py        # BM25 inverted index
+    semantic_search.py       # Sentence embeddings + chunking, cosine similarity
+    hybrid_search.py         # Weighted + RRF hybrid search, normalization
+    llm.py                   # OpenRouter client + all LLM prompts (spelling, rewrite,
+                              #   expand, rerank, evaluate, generate/summarize/cite/answer)
+    multimodal_search.py     # CLIP-based image embedding + image search
+  keyword_search_cli.py
+  semantic_search_cli.py
+  hybrid_search_cli.py
+  evaluation_cli.py
+  augmented_generation_cli.py
+  describe_image_cli.py
+  multimodal_search_cli.py
+  test_llm.py
+data/
+  movies.json                # Movie dataset
+  golden_dataset.json         # Query -> relevant titles, for precision/recall/F1 eval
+  paddington.jpeg             # Sample image for multimodal search demos
+cache/                        # Generated embeddings/index (gitignored, regenerated on run)
+```
+
+
 ## Example usage
 
 ```bash
@@ -41,5 +69,3 @@ uv run cli/multimodal_search_cli.py image_search data/paddington.jpeg
 ## Notes
 
 - LLM commands hit OpenRouter's free tier, which can be inconsistent; retry on failure.
-```
-
